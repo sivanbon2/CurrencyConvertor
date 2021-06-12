@@ -1,3 +1,5 @@
+package Scenarios.CurrencyCalculator;
+
 import Coin.Coin;
 import Coin.CoinFactory.CoinFactory;
 import Coin.CoinFactory.Coins;
