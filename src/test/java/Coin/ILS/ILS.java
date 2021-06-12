@@ -1,16 +1,19 @@
 package Coin.ILS;
 import Coin.Coin;
 
-//Currency class - Coin.ILS.Coin.ILS
+//Currency class - ILS
 public class ILS extends Coin {
 
     final double valueOf = 0.28;
 
+    //Getter
     @Override
     public double getValue(double value) {
+
         return value;
     }
 
+    //calculation of fx
     @Override
     public double calculate(double input) {
 
