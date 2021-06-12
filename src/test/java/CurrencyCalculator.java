@@ -39,19 +39,18 @@ public class CurrencyCalculator implements Serializable {
                             double value = usd.calculate(input);
                             //Third screen
                             System.out.println(value);
-                            String UsdToIls = "USD to ILS";
-                            Result USD2ILS = new Result(value, UsdToIls);
-                            //System.out.println(USD2ILS);
+                            Result USD2ILS = new Result(value,  "USD to ILS");
+                            System.out.println(USD2ILS.getResult());
                             result.add(value);
                         } else if (userInt == 2) {
                             Coin ilsValue = CoinFactory.getCoinsInstance(Coins.USD);
                             double value = ils.calculate(input);
                             //Third screen
                             System.out.println(value);
-                            String IlsToUsd = "ILS to USD";
-                            Result ILS2USD = new Result(value, IlsToUsd);
-                            //System.out.println(ILS2USD);
+                            Result ILS2USD = new Result(value, "ILS to USD");
+                            System.out.println(ILS2USD.getResult());
                             result.add(value);
+
                         } else {
                             System.out.println("Invalid Choice, Please try again");
                         }
