@@ -1,8 +1,10 @@
 package Coin.ILS;
 import Coin.Coin;
 
+import java.io.Serializable;
+
 //Currency class - ILS
-public class ILS extends Coin {
+public class ILS extends Coin implements Serializable {
 
     final double valueOf = 0.28;
 

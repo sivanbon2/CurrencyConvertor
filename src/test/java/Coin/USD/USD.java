@@ -1,8 +1,10 @@
 package Coin.USD;
 import Coin.Coin;
 
+import java.io.Serializable;
+
 //Currency class - USD
-public class USD extends Coin {
+public class USD extends Coin implements Serializable {
 
     final double valueOf = 3.52;
 

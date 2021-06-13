@@ -8,11 +8,10 @@ import Coin.Result.Result;
 import Coin.USD.USD;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CurrencyCalculator implements Serializable {
+public class CurrencyCalculator {
     public static void main(String[] args) throws IOException {
 
         Coin ils = new ILS();
@@ -42,6 +41,7 @@ public class CurrencyCalculator implements Serializable {
                         if (userInt == 1) {
                             //If the user choose 1 - convert from USD TO ILS (Dollars to Shekels)
                             Coin usdValue = CoinFactory.getCoinsInstance(Coins.ILS);
+                            assert usdValue != null;
                             double value = usdValue.calculate(input);
                             //Third screen
                             System.out.println(value);
@@ -53,6 +53,7 @@ public class CurrencyCalculator implements Serializable {
                         } else if (userInt == 2) {
                             //If the user choose 2 - convert from ILS TO USD (Shekels to Dollars)
                             Coin ilsValue = CoinFactory.getCoinsInstance(Coins.USD);
+                            assert ilsValue != null;
                             double value = ilsValue.calculate(input);
                             //Third screen
                             System.out.println(value);

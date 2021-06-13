@@ -8,8 +8,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Result {
-    String valueType;
-    double value;
+   private String valueType;
+   private  double value;
 
     //Result constructor
     public Result(double value, String valueType) {
