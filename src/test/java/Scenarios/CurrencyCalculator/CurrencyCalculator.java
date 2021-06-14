@@ -54,9 +54,8 @@ public class CurrencyCalculator {
                             //Getting results from results object
                             Result USD2ILS = new Result(value,  "USD to ILS");
                             System.out.println(USD2ILS.getResult());
-                            //Adding value to result arr
-                            result.add(value);
-                           LogsWriter.getInstance().writeToFile(USD2ILS.getResult());
+                            result.add(value);//Adding value to result arr
+                           LogsWriter.getInstance().writeToFile(USD2ILS.getResult()); //Write results to a file
 
                         } else if (userInt == 2) {
                             //If the user choose 2 - convert from ILS TO USD (Shekels to Dollars)
@@ -69,13 +68,11 @@ public class CurrencyCalculator {
                             //Getting results from results object
                             Result ILS2USD = new Result(value, "ILS to USD");
                             System.out.println(ILS2USD.getResult());
-                            //Adding value to result arr
-                            result.add(value);
-                            LogsWriter.getInstance().writeToFile(ILS2USD.getResult());
+                            result.add(value);//Adding value to result arr
+                            LogsWriter.getInstance().writeToFile(ILS2USD.getResult());//Write results to a file
 
                         } else {
-                            //user input Validation
-                            System.out.println("Invalid Choice, Please try again");
+                            System.out.println("Invalid Choice, Please try again");//user input Validation
                         }
                     }
                 }
@@ -83,8 +80,7 @@ public class CurrencyCalculator {
                     System.out.println("Would you like to start over ?");
                     answer = userChoice.next();
                 }
-            //while answer Y or y - user will start over
-            while (answer.equals("Y") || answer.equals("y") );
+            while (answer.equals("Y") || answer.equals("y") ); //while answer Y or y - user will start over
 
         //Fourth screen - If the user doesn't won't to proceed
         if(answer.equals("N")|| answer.equals("n")) {
