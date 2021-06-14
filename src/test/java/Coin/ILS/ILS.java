@@ -15,7 +15,7 @@ public class ILS extends Coin implements Serializable {
         return value;
     }
 
-    //calculation of fx
+    //Calculation of fx
     @Override
     public double calculate(double input) {
 

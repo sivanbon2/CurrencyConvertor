@@ -4,15 +4,18 @@ import Coin.Coin;
 import Coin.CoinFactory.CoinFactory;
 import Coin.CoinFactory.Coins;
 import Coin.ILS.ILS;
+import Coin.LogsWriter.LogsWriter;
 import Coin.Result.Result;
 import Coin.USD.USD;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CurrencyCalculator {
-    public static void main(String[] args)  {
+
+    public static void main(String[] args) throws IOException {
 
         Coin ils = new ILS();
         Coin usd = new USD();
@@ -26,23 +29,26 @@ public class CurrencyCalculator {
         String answer;
 
             do {
-                //First screen scenario
-                firstScreenQuestions();
+                //Present the first screen question inside the console
+                System.out.println("Welcome to Currency converter");
+                System.out.println("Please choose an option (1/2):");
+                System.out.println("Choose 1 for Dollars to Shekels");
+                System.out.println("Choose 2 for Shekels to Dollars");
                 // Create new Scanner that the user will be able to choose 1/2 (int)
                 Scanner userChoice = new Scanner(System.in); // Create a Scanner object
                 if (userChoice.hasNextInt()) {
                     int userInt = userChoice.nextInt();
                     //Second screen - the user is able to enter Amount to Convert (double)
                     System.out.println("Please Enter Amount to Convert");
-                    Scanner scanner = new Scanner(System.in);
                     //user input Validation
-                    if (scanner.hasNextDouble()) {
-                        double input = scanner.nextDouble();
+                    if (userChoice.hasNextDouble()) {
+                        double input = userChoice.nextDouble();
                         if (userInt == 1) {
                             //If the user choose 1 - convert from USD TO ILS (Dollars to Shekels)
                             Coin usdValue = CoinFactory.getCoinsInstance(Coins.ILS);
                             assert usdValue != null;
                             double value = usdValue.calculate(input);
+
                             //Third screen
                             System.out.println(value);
                             //Getting results from results object
@@ -50,11 +56,14 @@ public class CurrencyCalculator {
                             System.out.println(USD2ILS.getResult());
                             //Adding value to result arr
                             result.add(value);
+                           LogsWriter.getInstance().writeToFile(USD2ILS.getResult());
+
                         } else if (userInt == 2) {
                             //If the user choose 2 - convert from ILS TO USD (Shekels to Dollars)
                             Coin ilsValue = CoinFactory.getCoinsInstance(Coins.USD);
                             assert ilsValue != null;
                             double value = ilsValue.calculate(input);
+
                             //Third screen
                             System.out.println(value);
                             //Getting results from results object
@@ -62,6 +71,7 @@ public class CurrencyCalculator {
                             System.out.println(ILS2USD.getResult());
                             //Adding value to result arr
                             result.add(value);
+                            LogsWriter.getInstance().writeToFile(ILS2USD.getResult());
 
                         } else {
                             //user input Validation
@@ -85,14 +95,7 @@ public class CurrencyCalculator {
         }
 
     }
-        public static void firstScreenQuestions(){
-        //Present the first screen question inside the console
-            System.out.println("Welcome to Currency converter");
-            System.out.println("Please choose an option (1/2):");
-            System.out.println("Choose 1 for Dollars to Shekels");
-            System.out.println("Choose 2 for Shekels to Dollars");
-        }
 
-    }
+}
 
 
