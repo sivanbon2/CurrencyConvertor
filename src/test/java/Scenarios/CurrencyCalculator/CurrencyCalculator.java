@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CurrencyCalculator {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
 
         Coin ils = new ILS();
         Coin usd = new USD();
@@ -69,11 +69,11 @@ public class CurrencyCalculator {
                         }
                     }
                 }
-                    //Third screen - If the user won't to proceed
+                    //Third screen - Question to the user
                     System.out.println("Would you like to start over ?");
                     answer = userChoice.next();
                 }
-
+            //while answer Y or y - user will start over
             while (answer.equals("Y") || answer.equals("y") );
 
         //Fourth screen - If the user doesn't won't to proceed
