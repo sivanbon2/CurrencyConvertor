@@ -52,7 +52,7 @@ public class CurrencyCalculator {
                             //Third screen
                             System.out.println(value);
                             //Getting results from results object
-                            Result USD2ILS = new Result(value,  "USD to ILS");
+                            Result USD2ILS = new Result(value,  "ILS to USD");
                             System.out.println(USD2ILS.getResult());
                             result.add(value);//Adding value to result arr
                            LogsWriter.getInstance().writeToFile(USD2ILS.getResult()); //Write results to a file
@@ -65,8 +65,8 @@ public class CurrencyCalculator {
 
                             //Third screen
                             System.out.println(value);
-                            //Getting results from results object
-                            Result ILS2USD = new Result(value, "ILS to USD");
+                            //Getting results from results object //
+                            Result ILS2USD = new Result(value, "USD to ILS");
                             System.out.println(ILS2USD.getResult());
                             result.add(value);//Adding value to result arr
                             LogsWriter.getInstance().writeToFile(ILS2USD.getResult());//Write results to a file
