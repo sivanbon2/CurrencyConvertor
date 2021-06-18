@@ -3,10 +3,13 @@ package Scenarios.CurrencyCalculator;
 import Coin.Coin;
 import Coin.CoinFactory.CoinFactory;
 import Coin.CoinFactory.Coins;
+import Coin.GetAPI.GetApi;
 import Coin.ILS.ILS;
 import Coin.LogsWriter.LogsWriter;
 import Coin.Result.Result;
 import Coin.USD.USD;
+import com.squareup.okhttp.Response;
+import org.json.JSONObject;
 
 
 import java.io.IOException;
@@ -56,6 +59,9 @@ public class CurrencyCalculator {
                             System.out.println(USD2ILS.getResult());
                             result.add(value);//Adding value to result arr
                             LogsWriter.getInstance().writeToFile(USD2ILS.getResult());//Write results to a file
+
+                            GetApi get = new GetApi();
+                            get.a();
 
                         } else if (userInt == 2) {
                             //If the user choose 2 - convert from ILS TO USD (Shekels to Dollars)

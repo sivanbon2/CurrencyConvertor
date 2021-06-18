@@ -1,6 +1,4 @@
 package Coin.LogsWriter;
-import Coin.Coin;
-import Coin.Result.Result;
 
 import java.io.IOException;
 import java.nio.file.Files;
