@@ -45,31 +45,31 @@ public class CurrencyCalculator {
                         double input = userChoice.nextDouble();
                         if (userInt == 1) {
                             //If the user choose 1 - convert from USD TO ILS (Dollars to Shekels)
-                            Coin usdValue = CoinFactory.getCoinsInstance(Coins.ILS);
+                            Coin usdValue = CoinFactory.getCoinsInstance(Coins.USD);
                             assert usdValue != null;
                             double value = usdValue.calculate(input);
 
                             //Third screen
                             System.out.println(value);
-                            //Getting results from results object
-                            Result USD2ILS = new Result(value,  "ILS to USD");
+                            //Getting results from results object //
+                            Result USD2ILS = new Result(value, "USD to ILS");
                             System.out.println(USD2ILS.getResult());
                             result.add(value);//Adding value to result arr
-                           LogsWriter.getInstance().writeToFile(USD2ILS.getResult()); //Write results to a file
+                            LogsWriter.getInstance().writeToFile(USD2ILS.getResult());//Write results to a file
 
                         } else if (userInt == 2) {
                             //If the user choose 2 - convert from ILS TO USD (Shekels to Dollars)
-                            Coin ilsValue = CoinFactory.getCoinsInstance(Coins.USD);
+                            Coin ilsValue = CoinFactory.getCoinsInstance(Coins.ILS);
                             assert ilsValue != null;
                             double value = ilsValue.calculate(input);
 
                             //Third screen
                             System.out.println(value);
-                            //Getting results from results object //
-                            Result ILS2USD = new Result(value, "USD to ILS");
+                            //Getting results from results object
+                            Result ILS2USD = new Result(value,  "ILS to USD");
                             System.out.println(ILS2USD.getResult());
                             result.add(value);//Adding value to result arr
-                            LogsWriter.getInstance().writeToFile(ILS2USD.getResult());//Write results to a file
+                            LogsWriter.getInstance().writeToFile(ILS2USD.getResult()); //Write results to a file
 
                         } else {
                             System.out.println("Invalid Choice, Please try again");//user input Validation
@@ -85,7 +85,7 @@ public class CurrencyCalculator {
         //Fourth screen - If the user doesn't won't to proceed
         if(answer.equals("N")|| answer.equals("n")) {
             System.out.println("Thanks for using currency converter");
-            System.out.println("Your Currency Calculation " + result);
+            System.out.printf("Your Currency Calculation " + result);
         }else {
             System.out.println("Invalid Choice, Please try again");
         }

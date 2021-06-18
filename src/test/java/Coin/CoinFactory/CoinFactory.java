@@ -14,7 +14,7 @@ public class CoinFactory {
     public static Coin getCoinsInstance(Coins coin){
         switch (coin){
             case ILS -> {
-                System.out.println("USD to ILS");
+                System.out.println("ILS to USD");
                 return new ILS();
             }
             case USD -> {
