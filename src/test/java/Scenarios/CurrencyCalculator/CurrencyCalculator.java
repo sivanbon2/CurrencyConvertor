@@ -8,11 +8,6 @@ import Coin.ILS.ILS;
 import Coin.LogsWriter.LogsWriter;
 import Coin.Result.Result;
 import Coin.USD.USD;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-import org.json.JSONObject;
-
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,12 +51,22 @@ public class CurrencyCalculator {
 
                             //Third screen
                             System.out.println(value);
+
+
                             //Getting results from results object //
                             Result USD2ILS = new Result(value, "USD to ILS");
                             System.out.println(USD2ILS.getResult());
                             result.add(value);//Adding value to result arr
                             LogsWriter.getInstance().writeToFile(USD2ILS.getResult());//Write results to a file
 
+                            //Bonuses number 1
+                            if (input == 1){
+                                assert value == 3.52;
+                                assert result.contains(value);
+                                System.out.println("input == 1");
+                            }else {
+                                System.out.println("input is not 1");
+                            }
                             //Bonuses number 3
                             GetApi getApi = new GetApi();
                             Result ILS2USD2 = new Result(getApi.GetCurrenciesApi("rates","ILS", "USD"),  "ILS to USD");
@@ -82,6 +87,14 @@ public class CurrencyCalculator {
                             result.add(value);//Adding value to result arr
                             LogsWriter.getInstance().writeToFile(ILS2USD.getResult()); //Write results to a file
 
+                            //Bonuses number 1
+                            if (input == 1){
+                                assert value == 0.28;
+                                assert result.contains(value);
+                                System.out.println("input == 1");
+                            }else {
+                                System.out.println("input is not 1");
+                            }
 
                             //Bonuses number 3
                             GetApi getApi = new GetApi();
@@ -108,7 +121,6 @@ public class CurrencyCalculator {
         }
 
     }
-
 
 
 }

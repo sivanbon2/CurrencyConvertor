@@ -20,5 +20,6 @@ public class LogsWriter {
     public void writeToFile(String content) throws IOException {
         String filePath = "/Users/home/Desktop/Results.txt";
         Files.writeString(Path.of(filePath), content + "\n", StandardOpenOption.APPEND);
+
     }
 }

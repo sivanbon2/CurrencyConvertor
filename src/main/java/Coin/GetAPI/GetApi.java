@@ -1,11 +1,9 @@
 package Coin.GetAPI;
 
-
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import org.json.JSONObject;
-
 import java.io.IOException;
 
 public class GetApi {
@@ -20,10 +18,10 @@ public class GetApi {
         if (response.isSuccessful()) {
             String jsonData = response.body().string();
 
-            // parse JSON
+            // JSON parse
             JSONObject mainJsonObject = new JSONObject(jsonData);
             mainJsonObject.getJSONObject("rates");
-            // get Json result
+            // get result
             JSONObject resultsJson = mainJsonObject.getJSONObject(rates);
 
             double val = resultsJson.getDouble(currencies);
@@ -33,7 +31,6 @@ public class GetApi {
             System.out.println("Could Not Get Rate from API using default rate");
         }
       return client.getWriteTimeout();
-
 
     }
 }
