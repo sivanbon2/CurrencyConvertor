@@ -8,6 +8,8 @@ import Coin.ILS.ILS;
 import Coin.LogsWriter.LogsWriter;
 import Coin.Result.Result;
 import Coin.USD.USD;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import org.json.JSONObject;
 
@@ -60,8 +62,11 @@ public class CurrencyCalculator {
                             result.add(value);//Adding value to result arr
                             LogsWriter.getInstance().writeToFile(USD2ILS.getResult());//Write results to a file
 
-                            GetApi get = new GetApi();
-                            get.a();
+                            //Bonuses number 3
+                            GetApi getApi = new GetApi();
+                            Result ILS2USD2 = new Result(getApi.GetCurrenciesApi("rates","ILS", "USD"),  "ILS to USD");
+                            System.out.println(ILS2USD2.getResult());
+
 
                         } else if (userInt == 2) {
                             //If the user choose 2 - convert from ILS TO USD (Shekels to Dollars)
@@ -76,6 +81,12 @@ public class CurrencyCalculator {
                             System.out.println(ILS2USD.getResult());
                             result.add(value);//Adding value to result arr
                             LogsWriter.getInstance().writeToFile(ILS2USD.getResult()); //Write results to a file
+
+
+                            //Bonuses number 3
+                            GetApi getApi = new GetApi();
+                            Result USD2ILS = new Result(getApi.GetCurrenciesApi("rates","USD", "ILS"),  "ILS to USD");
+                            System.out.println(USD2ILS.getResult());
 
                         } else {
                             System.out.println("Invalid Choice, Please try again");//user input Validation
@@ -97,6 +108,8 @@ public class CurrencyCalculator {
         }
 
     }
+
+
 
 }
 
