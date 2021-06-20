@@ -34,15 +34,19 @@ public class CurrencyCalculator {
                 System.out.println("Please choose an option (1/2):");
                 System.out.println("Choose 1 for Dollars to Shekels");
                 System.out.println("Choose 2 for Shekels to Dollars");
+
                 // Create new Scanner that the user will be able to choose 1/2 (int)
                 Scanner userChoice = new Scanner(System.in); // Create a Scanner object
                 if (userChoice.hasNextInt()) {
                     int userInt = userChoice.nextInt();
+
                     //Second screen - the user is able to enter Amount to Convert (double)
                     System.out.println("Please Enter Amount to Convert");
+
                     //user input Validation
                     if (userChoice.hasNextDouble()) {
                         double input = userChoice.nextDouble();
+
                         if (userInt == 1) {
                             //If the user choose 1 - convert from USD TO ILS (Dollars to Shekels)
                             Coin usdValue = CoinFactory.getCoinsInstance(Coins.USD);
@@ -59,14 +63,7 @@ public class CurrencyCalculator {
                             result.add(value);//Adding value to result arr
                             LogsWriter.getInstance().writeToFile(USD2ILS.getResult());//Write results to a file
 
-                            //Bonuses number 1
-                            if (input == 1){
-                                assert value == 3.52;
-                                assert result.contains(value);
-                                System.out.println("input == 1");
-                            }else {
-                                System.out.println("input is not 1");
-                            }
+
                             //Bonuses number 3
                             GetApi getApi = new GetApi();
                             Result ILS2USD2 = new Result(getApi.GetCurrenciesApi("rates","ILS", "USD"),  "ILS to USD");
@@ -81,20 +78,14 @@ public class CurrencyCalculator {
 
                             //Third screen
                             System.out.println(value);
+
                             //Getting results from results object
                             Result ILS2USD = new Result(value,  "ILS to USD");
                             System.out.println(ILS2USD.getResult());
+
                             result.add(value);//Adding value to result arr
                             LogsWriter.getInstance().writeToFile(ILS2USD.getResult()); //Write results to a file
 
-                            //Bonuses number 1
-                            if (input == 1){
-                                assert value == 0.28;
-                                assert result.contains(value);
-                                System.out.println("input == 1");
-                            }else {
-                                System.out.println("input is not 1");
-                            }
 
                             //Bonuses number 3
                             GetApi getApi = new GetApi();
@@ -119,6 +110,7 @@ public class CurrencyCalculator {
         }else {
             System.out.println("Invalid Choice, Please try again");
         }
+
 
     }
 
