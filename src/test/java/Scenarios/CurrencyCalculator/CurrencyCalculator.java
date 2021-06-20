@@ -66,7 +66,7 @@ public class CurrencyCalculator {
 
                             //Bonuses number 3
                             GetApi getApi = new GetApi();
-                            Result ILS2USD2 = new Result(getApi.GetCurrenciesApi("rates","ILS", "USD"),  "ILS to USD");
+                            Result ILS2USD2 = new Result(getApi.GetCurrenciesApi("rates","ILS", "USD"),  "USD to ILS");
                             System.out.println(ILS2USD2.getResult());
 
 
